@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages, Extension
+from setuptools import setup, find_packages
 from os.path import abspath, dirname, join
 
 this_dir = abspath(dirname(__file__))
@@ -15,6 +15,6 @@ setup(
         author_email='joseph@unglobalpulse.org',
         license="MIT license",
         install_requires=requirements,
-        packages = ["example_module"],
+        packages=find_packages(),
 )
 
