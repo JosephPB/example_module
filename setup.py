@@ -7,10 +7,10 @@ with open(join(this_dir, "requirements.txt")) as f:
     requirements = f.read().split("\n")
 
 setup(
-        name="example_module",
+        name="example_package",
         version="1.0",
         description="",
-        url="https://github.com/JosephPB/example_module/",
+        url="https://github.com/JosephPB/example_package/",
         author="Joseph Aylett-Bullock",
         author_email='joseph@unglobalpulse.org',
         license="MIT license",
