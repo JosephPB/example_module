@@ -14,13 +14,16 @@ For developing packages of Python scripts where functions and classes are separa
 │   └── __init__.py
 │   └── ...   
 ├── tests/
-│   └── ... 
-└─ setup.py
+│   └── ...
+├── requirements.txt
+├── setup.py
 ```
 
-2. Create a `setup.py` file which tells the installer what to install and how to install the package. More information on the creation of this file can be found [here](https://setuptools.pypa.io/en/latest/userguide/quickstart.html).
+2. Create a `requirements.txt` file which lists all the relevant packages which must be installed, and their relevant versions, in order for this package to work.
 
-3. Install the package locally using:
+3. Create a `setup.py` file which tells the installer what to install and how to install the package. More information on the creation of this file can be found [here](https://setuptools.pypa.io/en/latest/userguide/quickstart.html).
+
+4. Install the package locally using:
 
 ```
 pip install -e .
