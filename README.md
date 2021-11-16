@@ -33,9 +33,28 @@ Here, the `-e` flag means that the package is editable, i.e. you don't have to r
 
 **Note:** We will discuss the `tests/` folder in the next section.
 
+The best ways to layout packages can be debated with an interesting explanation for slightly changing the above layout presented [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure).
+
 ## Tests
 
+Tests are used to check that all code written is executing properly. There are several ways to write tests, and various packages to help you automate testing. In this repository we use the [`pytest`](https://docs.pytest.org/en/6.2.x/contents.html) package.
 
+Here, we separate tests in to a dedicated folder so that we don't clog up our module scripts. In this folder are files named following the convention `test_[...].py`. Inside these scripts are functions which tests functions in the package. By convention, we try to have at least one test function for each package function, however, functions and their tests can be mixed to test additional complexity at the expense of potentially explainable results.
+
+An example of a test function set up is as follows:
+
+```
+def test_[some function]:
+   # code to set up and call function
+   assert [function to test](args, **kwargs) == [specific result]
+```
+
+The above is a very simple example for a deterministic output. Tests can become increaingly sophisticated, including the adding of sythetic data, sharing modules and functions between tests, and grouping similar tests into classes. More information on these can be found on the [pytest](https://docs.pytest.org/en/6.2.x/contents.html) webpage.
+
+Siilarly, there is also a set of [Pytest conventions and good practices](https://docs.pytest.org/en/6.2.x/goodpractices.html) listed in the online documentation.
+
+- Examples of some more complex test suites can be found [here](https://github.com/UNGlobalPulse/UNGP-settlement-modelling/tree/master/test_camps) and [here](https://github.com/IDAS-Durham/JUNE/tree/master/test_june)
+- An example of tests using synthetic data can be found [here](https://github.com/JosephPB/n3jet/tree/master/tests) with `conftest.py` script containing such data.
 
 ## Workflow
 
@@ -58,5 +77,6 @@ Once the remote branch is created, it can be pulled into the main branch through
 
 Once the PR has been approved, it can be merged into the main branch and the remote branch deleted. This deletion of the branch is good practice to ensure a clean set of branches on the remote repository. If more development is being conducted on this branch locally, deleting the remote branch will not delete the local branch and so you can continue developing there.
 
+## GitHub Actions
 
 
