@@ -27,7 +27,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest --cov-report term --cov=./example_module/ tests/
+        pytest --cov-report term --cov=./example_package/ tests/
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
