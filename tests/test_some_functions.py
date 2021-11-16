@@ -1,4 +1,4 @@
-from example_module.some_functions import (
+from example_package.some_functions import (
     add_numbers,
     multiply_numbers,
     subtract_numbers
