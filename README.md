@@ -49,9 +49,13 @@ def test_[some function]:
    assert [function to test](args, **kwargs) == [specific result]
 ```
 
+To run the tests locally, simply run `pytest` in the base directory of the package and the pytest will automatically look into the `test/` folder and run all functions beginning with `test_` in the scripts contained in this folder.
+
+Ideally, all lines of code in a package should be testable, and have tests written for them. Therefore, whenever new functions are added to the package, or existing functions edited, corresponding tests should be added and changed accordingly to ensure maximum coverage of tests.
+
 The above is a very simple example for a deterministic output. Tests can become increaingly sophisticated, including the adding of sythetic data, sharing modules and functions between tests, and grouping similar tests into classes. More information on these can be found on the [pytest](https://docs.pytest.org/en/6.2.x/contents.html) webpage.
 
-Siilarly, there is also a set of [Pytest conventions and good practices](https://docs.pytest.org/en/6.2.x/goodpractices.html) listed in the online documentation.
+Similarly, there is also a set of [Pytest conventions and good practices](https://docs.pytest.org/en/6.2.x/goodpractices.html) listed in the online documentation.
 
 - Examples of some more complex test suites can be found [here](https://github.com/UNGlobalPulse/UNGP-settlement-modelling/tree/master/test_camps) and [here](https://github.com/IDAS-Durham/JUNE/tree/master/test_june)
 - An example of tests using synthetic data can be found [here](https://github.com/JosephPB/n3jet/tree/master/tests) with `conftest.py` script containing such data.
@@ -79,4 +83,10 @@ Once the PR has been approved, it can be merged into the main branch and the rem
 
 ## GitHub Actions
 
+[GitHub Actions](https://github.com/features/actions) are a powerful set of tools which allow users to automate various components of software workflows. Here, we use them to automatically run the tests in the `tests/` folder in a sandbox environment setup on GitHub's servers. A fresh environment is set up by GitHub everytime the automation pipeline is run which happens every time a user commits to the main branch, and each time a PR is made. A 'successful' PR is one which has passed all the tests, and, if necesssary, been reviewed by a reviewer, and can then be merged in the main branch.
 
+An overview of setting up a simple `.yaml` file for pytest'ing can be found [here](https://blog.dennisokeeffe.com/blog/2021-08-08-pytest-with-github-actions).
+
+The GitHub Actions are controlled by the files contained in the `.github/workflows/` folder. Here, we have a file `python-publish.yaml`. This file tells GitHub how to set up the relevant Python environment, which dependencies to install, and then runs the tests.
+
+Example syntax's for GitHub Actions workflows can be found [here](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) with more documentation [here](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions).
