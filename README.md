@@ -106,6 +106,6 @@ And from python you can directly explore and run the functions:
 ```
 from example_module.some_functions import *
 ```
-(If the module has been installed via pip, you can run this Python code from any directory; otherwise, you must be in the repository of the example module.)
+(If the module has been installed via `pip`, you can run this code from any directory; otherwise, you must be in the repository of the example module.)
 
 
