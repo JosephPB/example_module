@@ -81,12 +81,31 @@ Once the remote branch is created, it can be pulled into the main branch through
 
 Once the PR has been approved, it can be merged into the main branch and the remote branch deleted. This deletion of the branch is good practice to ensure a clean set of branches on the remote repository. If more development is being conducted on this branch locally, deleting the remote branch will not delete the local branch and so you can continue developing there.
 
-## GitHub Actions
+## Running tests using GitHub Actions
 
-[GitHub Actions](https://github.com/features/actions) are a powerful set of tools which allow users to automate various components of software workflows. Here, we use them to automatically run the tests in the `tests/` folder in a sandbox environment setup on GitHub's servers. A fresh environment is set up by GitHub everytime the automation pipeline is run which happens every time a user commits to the main branch, and each time a PR is made. A 'successful' PR is one which has passed all the tests, and, if necesssary, been reviewed by a reviewer, and can then be merged in the main branch.
+[GitHub Actions](https://github.com/features/actions) are a powerful set of tools which allow users to automate various components of software workflows. Here, we use them to automatically run the tests in the `tests/` folder in a sandbox environment setup on GitHub's servers. A fresh environment is set up by GitHub everytime the automation pipeline is run which happens every time a user commits to the main branch, and each time a PR is made. A 'successful' PR is one which has passed all the tests, and, if necessary, been reviewed by a reviewer, and can then be merged in the main branch.
 
-An overview of setting up a simple `.yaml` file for `pytest'ing can be found [here](https://blog.dennisokeeffe.com/blog/2021-08-08-pytest-with-github-actions).
+An overview of setting up a simple `.yaml` file for `pytest`ing can be found [here](https://blog.dennisokeeffe.com/blog/2021-08-08-pytest-with-github-actions).
 
 The GitHub Actions are controlled by the files contained in the `.github/workflows/` folder. Here, we have a file `python-publish.yaml`. This file tells GitHub how to set up the relevant Python environment, which dependencies to install, and then runs the tests.
 
-Example syntax's for GitHub Actions workflows can be found [here](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) with more documentation [here](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions).
+Example syntax for GitHub Actions workflows can be found [here](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) with more documentation [here](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions).
+
+## Running tests locally
+If GitHub Actions are configured appropriately the testing will be done upon merging of the pull request. However you can also create a clean environment on your local computer and run the tests yourself.
+
+From the directory with the module:
+```
+python -m venv example_env         # Create a clean environment
+source example_env/bin/activate    # Activate it
+pip install -e .                   # Install the module and requirements
+pytest  tests/                     # Run the tests
+```
+
+And from python you can directly explore and run the functions:
+```
+from example_module.some_functions import *
+```
+(If the module has been installed via pip, you can run this Python code from any directory; otherwise, you must be in the repository of the example module.)
+
+
