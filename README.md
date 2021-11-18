@@ -1,6 +1,6 @@
 # Example package
 
-This repository is designed to demonstrate how to create a Python package which can be installed locally as a package accessible anywhere on your computer. The package consists of a series of simple functions which each have accompanying tests. These tests are used to ensure the code works as expected and that future changes of the cosebase do not break previous implementations. The tests are executed by GitHub every time someone makes a Pull Request, and on every commit to the main branch. This allows users to check the tests in a sandbox environment on GitHub servers before merging changes in the main branch.
+This repository is designed to demonstrate how to create a Python package which can be installed locally as a package accessible anywhere on your computer. The package consists of a series of simple functions which each have accompanying tests. These tests are used to ensure the code works as expected and that future changes of the codebase do not break previous implementations. The tests are executed by GitHub every time someone makes a Pull Request, and on every commit to the main branch. This allows users to check the tests in a sandbox environment on GitHub servers before merging changes in the main branch.
 
 ## Creating an installable Python package
 
@@ -33,13 +33,13 @@ Here, the `-e` flag means that the package is editable, i.e. you don't have to r
 
 **Note:** We will discuss the `tests/` folder in the next section.
 
-The best ways to layout packages can be debated with an interesting explanation for slightly changing the above layout presented [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure).
+The best ways to lay out packages can be debated with an interesting explanation for slightly changing the above layout presented [here](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure).
 
 ## Tests
 
 Tests are used to check that all code written is executing properly. There are several ways to write tests, and various packages to help you automate testing. In this repository we use the [`pytest`](https://docs.pytest.org/en/6.2.x/contents.html) package.
 
-Here, we separate tests in to a dedicated folder so that we don't clog up our module scripts. In this folder are files named following the convention `test_[...].py`. Inside these scripts are functions which tests functions in the package. By convention, we try to have at least one test function for each package function, however, functions and their tests can be mixed to test additional complexity at the expense of potentially explainable results.
+Here, we separate tests in to a dedicated folder so that we don't clog up our module scripts. In this folder are files named following the convention `test_[...].py`. Inside these scripts are functions which test functions in the package. By convention, we try to have at least one test function for each package function, however, functions and their tests can be mixed to test additional complexity at the expense of potentially explainable results.
 
 An example of a test function set up is as follows:
 
@@ -53,7 +53,7 @@ To run the tests locally, simply run `pytest` in the base directory of the packa
 
 Ideally, all lines of code in a package should be testable, and have tests written for them. Therefore, whenever new functions are added to the package, or existing functions edited, corresponding tests should be added and changed accordingly to ensure maximum coverage of tests.
 
-The above is a very simple example for a deterministic output. Tests can become increaingly sophisticated, including the adding of sythetic data, sharing modules and functions between tests, and grouping similar tests into classes. More information on these can be found on the [pytest](https://docs.pytest.org/en/6.2.x/contents.html) webpage.
+The above is a very simple example for a deterministic output. Tests can become increasingly sophisticated, including the adding of sythetic data, sharing modules and functions between tests, and grouping similar tests into classes. More information on these can be found on the [pytest](https://docs.pytest.org/en/6.2.x/contents.html) webpage.
 
 Similarly, there is also a set of [Pytest conventions and good practices](https://docs.pytest.org/en/6.2.x/goodpractices.html) listed in the online documentation.
 
@@ -77,7 +77,7 @@ git push --set-upstream origin dev_[descriptive name]
 
 After which all subsequent pushes to the remote branch can be done through the normal `git push`.
 
-Once the remote branch is created, it can be pulled into the main branch through using GitHub's Pull Request (PR) feature. For major changes, all PRs should have a reviewer assigned to ensure that another user has checked over the changed. It is good practice to assign a reviewer who is the most knowledeable about the given section of code changed. For simple PRs a reviewer may not be deemed necessary.
+Once the remote branch is created, it can be pulled into the main branch through using GitHub's Pull Request (PR) feature. For major changes, all PRs should have a reviewer assigned to ensure that another user has checked over the change. It is good practice to assign a reviewer who is the most knowledeable about the given section of code changed. For simple PRs a reviewer may not be deemed necessary.
 
 Once the PR has been approved, it can be merged into the main branch and the remote branch deleted. This deletion of the branch is good practice to ensure a clean set of branches on the remote repository. If more development is being conducted on this branch locally, deleting the remote branch will not delete the local branch and so you can continue developing there.
 
@@ -85,7 +85,7 @@ Once the PR has been approved, it can be merged into the main branch and the rem
 
 [GitHub Actions](https://github.com/features/actions) are a powerful set of tools which allow users to automate various components of software workflows. Here, we use them to automatically run the tests in the `tests/` folder in a sandbox environment setup on GitHub's servers. A fresh environment is set up by GitHub everytime the automation pipeline is run which happens every time a user commits to the main branch, and each time a PR is made. A 'successful' PR is one which has passed all the tests, and, if necesssary, been reviewed by a reviewer, and can then be merged in the main branch.
 
-An overview of setting up a simple `.yaml` file for pytest'ing can be found [here](https://blog.dennisokeeffe.com/blog/2021-08-08-pytest-with-github-actions).
+An overview of setting up a simple `.yaml` file for `pytest'ing can be found [here](https://blog.dennisokeeffe.com/blog/2021-08-08-pytest-with-github-actions).
 
 The GitHub Actions are controlled by the files contained in the `.github/workflows/` folder. Here, we have a file `python-publish.yaml`. This file tells GitHub how to set up the relevant Python environment, which dependencies to install, and then runs the tests.
 
