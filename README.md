@@ -51,7 +51,7 @@ def test_[some function]:
 
 To run the tests locally, simply run `pytest` in the base directory of the package and the pytest will automatically look into the `test/` folder and run all functions beginning with `test_` in the scripts contained in this folder.
 
-Ideally, all lines of code in a package should be testable, and have tests written for them. Therefore, whenever new functions are added to the package, or existing functions edited, corresponding tests should be added and changed accordingly to ensure maximum coverage of tests.
+''Coverage'' refers to the fraction of the code that is covered by tests. Ideally, all lines of code in a package should be testable, and have tests written for them. Therefore, whenever new functions are added to the package, or existing functions edited, corresponding tests should be added and changed accordingly to ensure maximum coverage of tests.
 
 The above is a very simple example for a deterministic output. Tests can become increasingly sophisticated, including the adding of sythetic data, sharing modules and functions between tests, and grouping similar tests into classes. More information on these can be found on the [pytest](https://docs.pytest.org/en/6.2.x/contents.html) webpage.
 
